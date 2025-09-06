@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramchandra Tharu</title>
+    <link rel="shortcut icon" type="x-icon" href ="blogo.png">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/5cba35d734.js" crossorigin="anonymous"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=League+Spartan&display=swap');
+        
+        /* Enhanced Navigation Styling */
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-left: auto;
+        }
+        
+        nav ul li a {
+            position: relative;
+            padding: 10px 15px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Home Section Styling */
+        nav ul li a[href="#header"] {
+            background: linear-gradient(45deg, #ff004f, #ff6b6b);
+            color: white !important;
+            box-shadow: 0 4px 15px rgba(255, 0, 79, 0.3);
+        }
+        
+        nav ul li a[href="#header"]:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 0, 79, 0.5);
+            background: linear-gradient(45deg, #ff6b6b, #ff004f);
+        }
+        
+        /* About Section Styling */
+        nav ul li a[href="#about"] {
+            background: linear-gradient(45deg, #4ecdc4, #44a08d);
+            color: white !important;
+            box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+        }
+        
+        nav ul li a[href="#about"]:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(78, 205, 196, 0.5);
+            background: linear-gradient(45deg, #44a08d, #4ecdc4);
+        }
+        
+        /* Services Section Styling */
+        nav ul li a[href="#service"] {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white !important;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        nav ul li a[href="#service"]:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+            background: linear-gradient(45deg, #764ba2, #667eea);
+        }
+        
+        /* Portfolio Section Styling */
+        nav ul li a[href="#portfolio"] {
+            background: linear-gradient(45deg, #f093fb, #f5576c);
+            color: white !important;
+            box-shadow: 0 4px 15px rgba(240, 147, 251, 0.3);
+        }
+        
+        nav ul li a[href="#portfolio"]:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(240, 147, 251, 0.5);
+            background: linear-gradient(45deg, #f5576c, #f093fb);
+        }
+        
+        /* Contact Section Styling */
+        nav ul li a[href="#contact"] {
+            background: linear-gradient(45deg, #ffecd2, #fcb69f);
+            color: #333 !important;
+            box-shadow: 0 4px 15px rgba(255, 236, 210, 0.3);
+        }
+        
+        nav ul li a[href="#contact"]:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 236, 210, 0.5);
+            background: linear-gradient(45deg, #fcb69f, #ffecd2);
+        }
+        
+        /* About Section Content Styling */
+        .about-content {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            font-size: 16px;
+            color: #e0e0e0;
+            text-align: justify;
+        }
+        
+        .about-content p {
+            margin-bottom: 12px;
+            padding: 8px 0;
+            border-left: 3px solid transparent;
+            padding-left: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .about-content p:hover {
+            border-left: 3px solid #ff004f;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding-left: 20px;
+        }
+        
+        .highlight {
+            color: #4ecdc4;
+            font-weight: 600;
+            background: linear-gradient(45deg, #4ecdc4, #44a08d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .tech-skills {
+            color: #ff6b6b;
+            font-weight: 600;
+            font-style: italic;
+            background: linear-gradient(45deg, #ff6b6b, #ff004f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .passion {
+            color: #ffd700;
+            font-weight: 700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        .closing {
+            font-style: italic;
+            font-size: 17px;
+            color: #b8b8b8;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-top: 15px;
+            padding: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.03);
+        }
+        
+        @keyframes glow {
+            from { text-shadow: 0 0 5px rgba(255, 215, 0, 0.3); }
+            to { text-shadow: 0 0 15px rgba(255, 215, 0, 0.7); }
+        }
+        
+        /* Tab section styling */
+        .tab-titles {
+            margin-top: 25px;
+            margin-bottom: 20px;
+        }
+        
+        .tab-titles p {
+            padding: 8px 15px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .tab-titles p.active {
+            background: linear-gradient(45deg, #ff004f, #ff6b6b);
+            color: white;
+        }
+        
+        .tab-contents {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #ff004f;
+        }
+        
+        .tab-contents ul li {
+            margin: 10px 0;
+            padding: 8px 0;
+        }
+        
+        .tab-contents ul li span {
+            font-size: 16px;
+            font-weight: 600;
+        }
+    </style>
+        
+</head>
+<body class="body">
+    <div id="header">
+        <div class="container">
+            <nav>
+                <img src="mylogo.png" class="logo">
+                <ul id="sidemenu">
+                    <li><a href="#header" style="cursor: url(./img/cursor/house.svg), auto;">Home</a></li>
+                    <li><a href="#about" style="cursor: url(./img/cursor/me.svg), auto;">About</a></li>
+                    <li><a href="#service" style="cursor: url(./img/cursor/service.svg), auto;">Services</a></li>
+                    <li><a href="#portfolio" style="cursor: url(./img/cursor/portfolio.svg), auto;">PROJECTS</a></li>
+                    <li><a href="#contact" style="cursor: url(./img/cursor/contact.svg), auto;">Contact</a></li>
+                    <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+                </ul>
+                <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+            </nav>
+            <div class="header-text">
+                <p><span id="dynamic-title">Web Developer</span></p>
+                <br>HELLO I'M <span href ="#about" >RAMCHANDRA THARU</span><br>FROM INDIA </h1><br>
+                <a href="resume.pdf" download class="btn btn1" style="cursor: url(./img/cursor/resume.svg), auto;">Download Resume</a>
+                
+            </div>
+        </div>
+    </div>
+    <!-- ---------------About--------------- -->
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="profile.png" style="cursor: url(./img/cursor/me.svg), auto;">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="subtitle">About Me</h1>  
+                    <div class="about-content">
+                        <p>I completed my undergraduate degree at <span class="highlight">LNCT University, Bhopal</span>, and am currently pursuing my post-graduation (MCA) from the same university.</p>
+                        
+                        <p>Over the years, I've built a strong foundation in programming and problem-solving, with skills in <span class="tech-skills">HTML, CSS, JavaScript, Java, Flutter, and Artificial Intelligence</span>. I love creating applications that are not only functional but also user-friendly and innovative.</p>
+                        
+                        <p>Beyond coding, I'm also deeply involved in <span class="passion">football</span> — as a player, coach, and referee, balancing my love for technology with my passion for sports.</p>
+                        
+                        <p class="closing">I'm always eager to learn, innovate, and collaborate on impactful projects. Thanks for visiting — feel free to reach out if you'd like to connect or work together!</p>
+                    </div>
+
+                    <div class="tab-titles">
+                        <p class="tab-links active" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                        <p class="tab-links"  onclick="opentab('education')">Education</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>Frontend Development</span><br>HTML, CSS, JavaScript, React</li>
+                            <li><span>Backend Development</span><br>Java, React js, Database Management</li>
+                            <li><span>Mobile Development</span><br>Flutter, Cross-platform Apps</li>
+                            <li><span>AI & Machine Learning</span><br>Python, Data Analysis,</li>
+                            <li><span>UI/UX Design</span><br>Designing Web/App interfaces</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="experience">
+                        <ul>
+                            
+                            <li><span>Project Development</span><br>Working on various web and mobile applications</li>
+                            <li><span>Football Coach & Referee</span><br>Active in AIFF football community</li>
+                            <li><span>Continuous Learning</span><br>Expanding skills in AI and modern technologies</li>
+
+                        </ul>
+                    </div>  
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>2025-2027</span><br>MCA from LNCT University, Bhopal</li>
+                            <li><span>2022-2025</span><br>BCA from LNCT University, Bhopal</li>
+                            <li><span>2019-2021</span><br>Completed 10+2 from Nepal</li>
+                            <li><span>2007-2019</span><br>Completed Schooling (Grade 1–10) from Nepal</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ---------------------------------Services-------------------------------- -->
+
+
+<div id="service">
+    <div class="container">
+        <h1 class="subtitle">My Services</h1>
+        <div class="service-list">
+
+            <!-- Web Design -->
+            <div style="cursor: url(./img/cursor/webd.svg), auto;">
+                <i class="fa-solid fa-code"></i>
+                <h2>Web Design</h2>
+                <p>I love this Work. Web design is so much fun for me and I am working on many projects right now.</p>
+                <a href="#">Learn More</a>
+            </div>
+
+            <!-- UI/UX Design -->
+            <div style="cursor: url(./img/cursor/uiux.svg), auto;">
+                <i class="fa-solid fa-crop"></i>
+                <h2>UI/UX Design</h2>
+                <p>Working with UI/UX is fun. Choosing the right colors is hectic but I manage to create the best
+                    design.</p>
+                <a href="#">Learn More</a>
+            </div>
+
+            <!-- Website Development -->
+            <div style="cursor: url(./img/cursor/webdev.svg), auto;">
+                <i class="fa-solid fa-laptop-code"></i>
+                <h2>Website Development</h2>
+                <p>I build responsive and dynamic websites that are fast, secure, and user-friendly.</p>
+                <a href="#">Learn More</a>
+            </div>
+
+            <!-- Android App Development -->
+            <div style="cursor: url(./img/cursor/app.svg), auto;">
+                <i class="fa-brands fa-android"></i>
+                <h2>Android App Development</h2>
+                <p>Creating smooth and functional Android apps with a focus on great user experience.</p>
+                <a href="#">Learn More</a>
+            </div>
+
+            <!-- Fullstack Development (Frontend + Backend) -->
+            <div style="cursor: url(./img/cursor/fullstack.svg), auto;">
+                <i class="fa-solid fa-code-branch"></i>
+                <h2>Fullstack Development</h2>
+                <p>I develop complete web solutions including both frontend (UI/UX, React, Angular)
+                    and backend (Node.js, Django, APIs, Databases) for scalable applications.</p>
+                <a href="#">Learn More</a>
+            </div>
+            <!-- Database Management -->
+<div style="cursor: url(./img/cursor/database.svg), auto;">
+    <i class="fa-solid fa-database"></i>
+    <h2>Database Management</h2>
+    <p>I design, optimize, and manage databases (MySQL, MongoDB, PostgreSQL) 
+       to ensure data security, scalability, and high performance.</p>
+    <a href="#">Learn More</a>
+</div>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+<!-- ------------------------project--------------------- -->
+<div id="portfolio">
+    <div class="container">
+        <h1 class="subtitle">My Work</h1>
+        <div class="work-list">
+            <!-- Woofy Pet Shop -->
+            <div class="work">
+                <img src="https://picsum.photos/300/200?random=1" alt="Woofy Pet Shop">
+                <div class="layer">
+                    <h3>Woofy Pet Shop</h3>
+                    <p>An e-commerce website for pet essentials.</p>
+                </div>
+            </div>
+
+            <!-- Prinac Solution -->
+            <div class="work">
+                <img src="work2.png" alt="Prinac Solution">
+                <div class="layer">
+                    <h3>Portfolio Website</h3>
+                    <p>A personal portfolio website showcasing the details of Ramchandra Tharu, developed using HTML, CSS, and JavaScript."</p>
+                </div>
+            </div>
+
+            <!-- Tic Tac Toe Game -->
+            <div class="work">
+                <img src="work1.png" alt="Tic Tac Toe Game">
+                <div class="layer">
+                    <h3>Tic Tac Toe Game</h3>
+                    <p>This is a Tic Tac Toe game where two players take turns marking spaces in a 3×3 grid to achieve three in a row. It was
+                    developed using the Flutter framework</p>
+                </div>
+            </div>
+
+            <!-- Login Page -->
+            <div class="work">
+                <img src="Work3.png" alt="Login Page">
+                <div class="layer">
+                    <h3>Login Page</h3>
+                    <p>A simple login page with validation using HTML, CSS, and JavaScript.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="see">
+            <a href="https://github.com/Ramchandra-Tharu" target="_blank" class="btn"
+                style="cursor: url(./img/cursor/seemore.svg), auto;">See More</a>
+        </div>
+    </div>
+</div>
+
+  <br>
+
+
+ <div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="subttle">Contact Me</h1>
+                <p style="cursor: url(./img/cursor/mail.svg), auto;"><i class="fa-solid fa-paper-plane"></i><a href="mailto:ramchandrachaudhary2003@gmail.com">ramchandrachaudhary2003@gmail.com</a></p>
+                <p style="cursor: url(./img/cursor/call.svg), auto;"><i class="fa-solid fa-phone"></i><a href="tel:7772841392">+91 7772841392</a></p>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/ramachandra-tharu" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.facebook.com/sirzanchaudhary143" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://github.com/Ramchandra-Tharu" target="_blank" ><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.instagram.com/sirzanchaudhary/" target="_blank" ><i class="fa-brands fa-instagram"></i></a>
+                    <a href=""
+
+                </div>
+                <a href="resume.pdf" download class="btn btn1">Download Resume</a>
+            </div>
+            <div class="contact-right">
+                <form name="submit-to-google-sheet">
+                    <input class="hover" type="text" name="Name" placeholder="Your Name" required>
+                    <input class="hover" type="text" name="email" placeholder="Your Email" required>
+                    <textarea class="hover" name="Message" rows="6" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn btn1">Submit</button>
+                </form>
+                <span id="msg"></span>
+            </div>  
+        </div>
+    </div>
+    <div class="copyright">
+        <p>copyright © Ramchandra. Made with <i class="fa-solid fa-heart"></i> by Ramchandra Tharu</p>
+    </div>
+ </div>
+    
+
+
+    <script src="main.js"></script>
+</body>
+</html>
